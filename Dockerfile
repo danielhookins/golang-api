@@ -13,7 +13,7 @@ RUN go mod download
 
 COPY *.go ./
 
-RUN go build -o /main
+RUN go build -o /api
 
 # Deploy
 FROM alpine:3.14
