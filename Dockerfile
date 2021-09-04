@@ -6,27 +6,19 @@ FROM golang:1.16-alpine AS build
 
 WORKDIR /app
 
-COPY go.mod ./
-COPY go.sum ./
+COPY . .
 
-RUN go mod download
-
-COPY *.go ./
-
-RUN go build -o /api
+RUN go mod download && \
+    go build -o api
 
 # Deploy
 
 FROM alpine:3.14
 
-WORKDIR /
+WORKDIR /app
 
-COPY --from=build /api /api
-
-COPY --from=build /usr/local/go/ /usr/local/go/
- 
-ENV PATH="/usr/local/go/bin:${PATH}"
+COPY --from=build /app/api /app/api
 
 EXPOSE 8080
 
-ENTRYPOINT ["/api"]
+ENTRYPOINT ["/app/api"]

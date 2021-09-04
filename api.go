@@ -21,10 +21,10 @@ func home(c *gin.Context) {
 	})
 }
 
-func getArticle(c *gin.Context) {
+// TODO: Return Article from Database
+func getArticleByPermalink(c *gin.Context) {
 	permalink := c.Param("permalink")
 
-	// c.String(http.StatusOK, message)
 	c.JSON(200, gin.H{
 		"permalink": permalink,
 	})
