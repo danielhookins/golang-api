@@ -8,9 +8,14 @@
   |_______||_______||_______||__| |__||_|  |__||_______|       |__| |__||___|    |___|
 
 ```
+
 # Golang API
 An API Backend for a Blog.  
-Written in Go.
+
+Written with  
+[Go (Golang)](https://golang.org/)  
+[Gin Web Framework](https://github.com/gin-gonic/gin)  
+
 
 # Run the Docker Container
 `docker run --publish 8080:8080 --name golang-api golang-api`
